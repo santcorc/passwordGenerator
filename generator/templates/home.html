@@ -1,0 +1,53 @@
+{% extends './layout.html' %}
+
+
+{% block content %}
+
+<div class="col-md-4 offset-md-4">
+    <form action="password" class="card card-body p-5" 
+    style="background-color: #121212;"
+    >
+
+        <h1 class="h4">Password Generator</h1>
+
+        <label for="length">Enter the length of the password:</label>
+        <input type="text" name="length">
+
+
+        <div class="custom-control custom-switch">
+            <input type="checkbox" name="uppercase" id="uppercase" class="custom-control-input">
+            <label for="uppercase" class="custom-control-label">Uppercase</label>
+        </div>
+
+        <div class="custom-control custom-switch">
+            <input type="checkbox" name="numbers" id="numbers" class="custom-control-input">
+            <label for="numbers" class="custom-control-label">Numbers</label>
+        </div>
+
+        <div class="custom-control custom-switch">
+            <input type="checkbox" name="specialCharacters" id="specialCharacters" class="custom-control-input">
+            <label for="specialCharacters" class="custom-control-label">SpecialCharacters</label>
+        </div>
+
+        <div class="custom-control custom-switch">
+            <input type="checkbox" name="criptographicstrongpassword" id="criptographicstrongpassword" class="custom-control-input">
+            <label for="criptographicstrongpassword" class="custom-control-label">Criptographic strong password</label>
+        </div>
+
+        {% for errorMessage in messages %}
+    
+            <div class="alert alert-success h8"
+            style="background-color: #851a1a67;">
+                <a class="text-danger" href="#" data-dismiss="alert">×</a>
+                <span style="color: rgb(233, 233, 233)">{{ errorMessage }}</span>
+            </div>
+
+        {% endfor %}
+        
+
+        <button class="btn btn-primary">Generate password</button>
+    </form>
+
+</div>
+
+{% endblock %}
