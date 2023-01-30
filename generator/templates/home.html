@@ -3,8 +3,10 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+
 <div class="col-md-4 offset-md-4">
-    <form action="password" class="card card-body p-5" 
+    <form action="/password" class="card card-body p-5" 
     style="background-color: #121212;"
     >
 
@@ -49,5 +51,13 @@
     </form>
 
 </div>
+
+{% else %}
+
+<head>
+    <meta http-equiv='refresh' content='0; /accounts/login/'>
+</head>
+
+{% endif %}
 
 {% endblock %}

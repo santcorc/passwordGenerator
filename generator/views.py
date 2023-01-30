@@ -2,8 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView
 import secrets
 
+def root(request):
+    return redirect('home/')
 
 def about(request):
     return render(request, 'about.html')
@@ -11,8 +16,6 @@ def about(request):
 def home(request):
     return render(request, 'home.html')
 
-def login(request):
-    return render(request, 'login.html')
 
 def password(request):
 
@@ -41,7 +44,7 @@ def password(request):
     
     if (lengthPassword<8):
         messages.error(request,'length must be 8 or more')
-        return redirect('/')
+        return redirect('home/')
 
     isUppercase = False
 
@@ -73,3 +76,9 @@ def password(request):
             randomPassword+=secrets.choice(characters)
 
     return render(request, 'password.html', {'password': randomPassword})
+
+
+class SignUp(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy("login")
+    template_name = "registration/signup.html"
