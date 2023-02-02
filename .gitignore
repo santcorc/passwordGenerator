@@ -1,0 +1,36 @@
+# Archivos generados por Django
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Archivos generados por el sistema de desarrollo
+env/
+.env
+.venv/
+
+# Archivos generados por la aplicación
+media/
+static/
+
+# Archivos de configuración de la aplicación
+local_settings.py
+secret_key.py
+
+# Archivos generados por el manejador de dependencias
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Archivos generados por el IDE
+*.pyc
+.DS_Store
+*.log
+
+# Archivos de backup de la base de datos
+db.sqlite3.bak
+
+# Archivos de sesión y caché de Django
+sessions/
+cache/
